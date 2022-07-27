@@ -48,39 +48,6 @@ This is a pure nodeJS solution to solution to generate and communicate payslip f
 
 ---
 
-## Code structure:
-📦.serverless
- ┣ 📜cloudformation-template-create-stack.json
- ┣ 📜cloudformation-template-update-stack.json
- ┣ 📜serverless-nodejs-app.zip
- ┗ 📜serverless-state.json
-📦assets
- ┗ 📜favico.jpg
-📦data
- ┣ 📜shg.js
- ┗ 📜template.js
-📦lib
- ┣ 📂templates
- ┃ ┣ 📂assets
- ┃ ┃ ┗ 📜template.css
- ┃ ┣ 📂components
- ┃ ┃ ┗ 📜title.pug
- ┃ ┣ 📂layouts
- ┃ ┃ ┗ 📜main.pug
- ┃ ┗ 📜payslip.pug
- ┣ 📜mailer.js
- ┣ 📜payslip.js
- ┗ 📜utils.js
- 📜app.css
- 📜app.js
- 📜config.js
- 📜fullsample.csv
- 📜index.html
- 📜output.csv
- 📜sample.csv
- 📜serverless.yml
-
----
  ## How Cloud Deployment Was Done
  1) AWS CloudFormation template is created from serverless.yml
  2) If a Stack has not yet been created, then it is created with no resources except for an S3 Bucket, which will store zip files of the function code
