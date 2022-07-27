@@ -4,6 +4,7 @@ const fs = require('fs');
 const { parse } = require('csv-parse');
 const { transform } = require('stream-transform');
 const { convert, sendEmail } = require('./lib/payslip');
+const cron = require("node-cron");
 const { stringify } = require('./lib/utils');
 const path = require('path');
 const argv = require('optimist')
@@ -59,17 +60,30 @@ const sendEmailToEmployees = async (data) => {
         await sendEmail(element)
     }
 }
+
+const processPayslips = async (res) => {
+    writable = input.pipe(parser)
+        .pipe(transformer)
+    writable.on('finish', async function () {
+        await sendEmailToEmployees(convertedRecords);
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end("<head><link rel='stylesheet' href='app.css'></head><div class='container'><b>Successfully sent payslips!</b></div>");
+    })
+}
 app.post("/", (_req, res) => {
     try {
-        writable = input.pipe(parser)
-            .pipe(transformer)
-        writable.on('finish', function () {
-            sendEmailToEmployees(convertedRecords)
-            res.status = 200;
-        });
+        processPayslips(res);
     } catch (err) {
-        res.send(err)
+        res.send(err);
     }
+});
+
+cron.schedule("0 0 1 * *", function () {
+    writable = input.pipe(parser)
+        .pipe(transformer)
+    writable.on('finish', async function () {
+        sendEmailToEmployees(convertedRecords);
+    })
 });
 
 module.exports.server = sls(app)

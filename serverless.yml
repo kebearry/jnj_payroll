@@ -11,7 +11,7 @@ provider:
 functions:
   app:
     handler: app.server # reference the file and exported method
-    timeout: 400 # optional, in seconds, default is 6
+    timeout: 30 # optional, in seconds, default is 6
     events: # events trigger lambda functions
       - http: # this is an API Gateway HTTP event trigger
           path: /

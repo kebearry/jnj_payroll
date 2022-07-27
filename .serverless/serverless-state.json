@@ -173,13 +173,13 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/serverless-nodejs-app/dev/1658916327799-2022-07-27T10:05:27.799Z/serverless-nodejs-app.zip"
+                "S3Key": "serverless/serverless-nodejs-app/dev/1658940158424-2022-07-27T16:42:38.424Z/serverless-nodejs-app.zip"
               },
               "Handler": "app.server",
               "Runtime": "nodejs16.x",
               "FunctionName": "serverless-nodejs-app-dev-app",
               "MemorySize": 1024,
-              "Timeout": 400,
+              "Timeout": 30,
               "Role": {
                 "Fn::GetAtt": [
                   "IamRoleLambdaExecution",
@@ -191,14 +191,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionkhONHw6iCm0zo7w2L5hc3qXdS9BvmsGAjTP0KEIo0": {
+          "AppLambdaVersioneXu8QHEbMvWMk89j0thyrOhQPrRfRXRKR111rKro": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "bTiWvqa4M42qTrG1rmhVx56UBTvHlaLTdiwNxjuWoNg="
+              "CodeSha256": "dml7TykjfyDTObYXpjtVgFKKdSzf/Uw3B2MpX0kbdZY="
             }
           },
           "ApiGatewayRestApi": {
@@ -416,7 +416,7 @@
               "AppLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1658916324543": {
+          "ApiGatewayDeployment1658940155570": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -481,7 +481,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionkhONHw6iCm0zo7w2L5hc3qXdS9BvmsGAjTP0KEIo0"
+              "Ref": "AppLambdaVersioneXu8QHEbMvWMk89j0thyrOhQPrRfRXRKR111rKro"
             },
             "Export": {
               "Name": "sls-serverless-nodejs-app-dev-AppLambdaFunctionQualifiedArn"
@@ -603,7 +603,7 @@
     "functions": {
       "app": {
         "handler": "app.server",
-        "timeout": 400,
+        "timeout": 30,
         "events": [
           {
             "http": {
@@ -659,7 +659,7 @@
         "memory": 1024,
         "runtime": "nodejs16.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionkhONHw6iCm0zo7w2L5hc3qXdS9BvmsGAjTP0KEIo0"
+        "versionLogicalId": "AppLambdaVersioneXu8QHEbMvWMk89j0thyrOhQPrRfRXRKR111rKro"
       }
     },
     "configValidationMode": "warn",
@@ -678,7 +678,7 @@
     "artifact": "C:\\Users\\rebecca\\Desktop\\dream\\jnj\\.serverless\\serverless-nodejs-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/serverless-nodejs-app/dev/1658916327799-2022-07-27T10:05:27.799Z",
+    "artifactDirectoryName": "serverless/serverless-nodejs-app/dev/1658940158424-2022-07-27T16:42:38.424Z",
     "artifact": "serverless-nodejs-app.zip"
   }
 }
