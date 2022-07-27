@@ -1,0 +1,16 @@
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+}
+
+.container #payslipTrigger {
+    background-color: #D51900;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 20px;
+}
